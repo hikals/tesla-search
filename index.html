@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Used Car Search Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="glass-header">
+        <div class="logo">
+            <i class="fa-solid fa-bolt"></i> TESLA HUB
+        </div>
+        <nav>
+            <a href="#">ホーム</a>
+            <a href="#">お気に入り</a>
+            <a href="#about">システムについて</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>Find Your Perfect Tesla.</h1>
+                <p>主要な中古車サイトとテスラ認定中古車を一括検索</p>
+            </div>
+            
+            <div class="search-panel glass-panel">
+                <form id="search-form">
+                    <div class="filter-grid">
+                        <div class="filter-group">
+                            <label><i class="fa-solid fa-car"></i> モデル</label>
+                            <select id="model-select">
+                                <option value="all">すべてのモデル</option>
+                                <option value="Model 3">Model 3</option>
+                                <option value="Model Y">Model Y</option>
+                                <option value="Model S">Model S</option>
+                                <option value="Model X">Model X</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label><i class="fa-solid fa-yen-sign"></i> 予算 (万円)</label>
+                            <div class="range-inputs">
+                                <input type="number" id="price-min" placeholder="下限">
+                                <span>〜</span>
+                                <input type="number" id="price-max" placeholder="上限">
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label><i class="fa-solid fa-road"></i> 走行距離</label>
+                            <select id="mileage-select">
+                                <option value="all">こだわらない</option>
+                                <option value="10000">1万km以内</option>
+                                <option value="30000">3万km以内</option>
+                                <option value="50000">5万km以内</option>
+                            </select>
+                        </div>
+
+                        <div class="sources-group filter-group">
+                            <label><i class="fa-solid fa-globe"></i> 検索対象サイト</label>
+                            <div class="checkboxes">
+                                <label class="checkbox-label"><input type="checkbox" value="carsensor" checked> カーセンサー</label>
+                                <label class="checkbox-label"><input type="checkbox" value="goonet" checked> gooネット</label>
+                                <label class="checkbox-label"><input type="checkbox" value="kurumaerabi" checked> 車選び.com</label>
+                                <label class="checkbox-label"><input type="checkbox" value="certified" checked> テスラ認定</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary"><i class="fa-solid fa-search"></i> 一括検索を実行する</button>
+                    <p class="disclaimer">※実際のサイトの仕様上、実データの一括取得にはサーバーの実装が必要です。本番環境への移行時はバックエンドAPIを使用します。</p>
+                </form>
+            </div>
+        </section>
+
+        <section id="results-section" class="results-container hidden">
+            
+            <div class="external-links-section glass-panel">
+                <h2><i class="fa-solid fa-external-link-alt"></i> 実際のサイトで検索する</h2>
+                <p class="mb-3">選択した条件に基づいて、各サイトの検索結果ページを別タブで開きます。</p>
+                <div id="external-buttons" class="button-grid">
+                    <!-- Buttons injected by JS -->
+                </div>
+            </div>
+
+            <div class="results-header mt-5">
+                <h2>統合表示デモ <span class="badge">SAMPLE DOM UI</span></h2>
+                <p>サイトを跨いだ検索結果を統合し、一覧表示するデモ画面です。</p>
+            </div>
+            
+            <div class="results-meta">
+                <span id="result-count">0</span> 件の車両が見つかりました
+            </div>
+
+            <div id="demo-results" class="car-grid">
+                <!-- Data injected by JS -->
+            </div>
+            
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Tesla Used Car Hub | Showcase UI Design</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
